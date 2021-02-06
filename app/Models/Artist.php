@@ -36,4 +36,8 @@ class Artist extends Model {
         'created_by', 'updated_by', 'created_at', 'updated_at'
     ];
 
+    public function albums() {
+        return $this->hasMany(Album::class);
+    }
+
 }

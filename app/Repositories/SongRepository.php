@@ -1,0 +1,43 @@
+<?php
+
+declare(strict_types=1);
+
+namespace App\Repositories;
+
+use App\Models\Song;
+use Spatie\QueryBuilder\AllowedFilter;
+use Spatie\QueryBuilder\QueryBuilder;
+
+class SongRepository {
+
+    public function getAll() {
+
+        // return Song::with(['album'])->orderBy('position')->paginate(10);
+
+        $songs = QueryBuilder::for(Song::class)
+                ->allowedFilters([
+                    AllowedFilter::partial('name'),
+                    AllowedFilter::exact('album_id')
+                ])
+                ->allowedSorts(['name', 'duration', 'position'])
+                ->allowedFields(['songs.id', 'songs.name', 'songs.duration', 'songs.position', 'songs.album_id',
+                    'albums.id', 'albums.name'])
+                ->allowedIncludes(['album'])
+                ->defaultSort('position');
+
+        return $songs->paginate(10);
+    }
+
+    public function getById(string $id) {
+
+        $band = QueryBuilder::for(Album::class)
+                ->allowedFields(['albums.id', 'albums.name', 'albums.band_id', 'albums.artist_id', 'albums.release_date',
+                    'artists.id', 'artists.name',
+                    'bands.id', 'bands.name'])
+                ->allowedIncludes(['band', 'artist', 'songs'])
+                ->find($id);
+
+        return $band;
+    }
+
+}

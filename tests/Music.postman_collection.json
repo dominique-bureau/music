@@ -1,0 +1,701 @@
+{
+	"info": {
+		"_postman_id": "52264e26-8205-4a7a-8ac8-d2619b8bbdae",
+		"name": "Music",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "artists",
+			"item": [
+				{
+					"name": "get all artists",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{path}}/artists",
+							"host": [
+								"{{path}}"
+							],
+							"path": [
+								"artists"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all artists some fields",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{path}}/artists?fields[artists]=id,name",
+							"host": [
+								"{{path}}"
+							],
+							"path": [
+								"artists"
+							],
+							"query": [
+								{
+									"key": "fields[artists]",
+									"value": "id,name"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all artists sorted by +name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{path}}/artists?sort=name",
+							"host": [
+								"{{path}}"
+							],
+							"path": [
+								"artists"
+							],
+							"query": [
+								{
+									"key": "sort",
+									"value": "name"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all artists sorted by -name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{path}}/artists?sort=-name",
+							"host": [
+								"{{path}}"
+							],
+							"path": [
+								"artists"
+							],
+							"query": [
+								{
+									"key": "sort",
+									"value": "-name"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all artists sorted by -birth_date",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{path}}/artists?sort=-birth_date",
+							"host": [
+								"{{path}}"
+							],
+							"path": [
+								"artists"
+							],
+							"query": [
+								{
+									"key": "sort",
+									"value": "-birth_date"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all artists filtered nationality",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{path}}/artists?filter[nationality_id]=FR&filter[name]=k",
+							"host": [
+								"{{path}}"
+							],
+							"path": [
+								"artists"
+							],
+							"query": [
+								{
+									"key": "filter[nationality_id]",
+									"value": "FR"
+								},
+								{
+									"key": "filter[name]",
+									"value": "k"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all artists several conditions",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{path}}/artists?filter[nationality_id]=FR&fields[artists]=id,name,birth_date&sort=name&page=1",
+							"host": [
+								"{{path}}"
+							],
+							"path": [
+								"artists"
+							],
+							"query": [
+								{
+									"key": "filter[nationality_id]",
+									"value": "FR"
+								},
+								{
+									"key": "fields[artists]",
+									"value": "id,name,birth_date"
+								},
+								{
+									"key": "sort",
+									"value": "name"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get one artist",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{path}}/artists/ee6296b6-47e6-46a1-ba29-0a5c9a0d2910",
+							"host": [
+								"{{path}}"
+							],
+							"path": [
+								"artists",
+								"ee6296b6-47e6-46a1-ba29-0a5c9a0d2910"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get one artist some fields",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{path}}/artists/ee6296b6-47e6-46a1-ba29-0a5c9a0d2910?fields[artists]=id,name",
+							"host": [
+								"{{path}}"
+							],
+							"path": [
+								"artists",
+								"ee6296b6-47e6-46a1-ba29-0a5c9a0d2910"
+							],
+							"query": [
+								{
+									"key": "fields[artists]",
+									"value": "id,name"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "bands",
+			"item": [
+				{
+					"name": "get all bands",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{path}}/bands",
+							"host": [
+								"{{path}}"
+							],
+							"path": [
+								"bands"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all bands some fields",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{path}}/bands?fields[bands]=name",
+							"host": [
+								"{{path}}"
+							],
+							"path": [
+								"bands"
+							],
+							"query": [
+								{
+									"key": "fields[bands]",
+									"value": "name"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all bands sorted by +name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{path}}/bands?sort=name",
+							"host": [
+								"{{path}}"
+							],
+							"path": [
+								"bands"
+							],
+							"query": [
+								{
+									"key": "sort",
+									"value": "name"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all bands sorted by -name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{path}}/bands?sort=-name",
+							"host": [
+								"{{path}}"
+							],
+							"path": [
+								"bands"
+							],
+							"query": [
+								{
+									"key": "sort",
+									"value": "-name"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all bands filtered by name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{path}}/bands?filter[name]=ENE",
+							"host": [
+								"{{path}}"
+							],
+							"path": [
+								"bands"
+							],
+							"query": [
+								{
+									"key": "filter[name]",
+									"value": "ENE"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all bands with their artists",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{path}}/bands?include=artists",
+							"host": [
+								"{{path}}"
+							],
+							"path": [
+								"bands"
+							],
+							"query": [
+								{
+									"key": "include",
+									"value": "artists"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all bands with their artists + some fields",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{path}}/bands?fields[bands]=id,name&fields[artists]=artists.id,artists.name&include=artists&sort[bands]=bands.name",
+							"host": [
+								"{{path}}"
+							],
+							"path": [
+								"bands"
+							],
+							"query": [
+								{
+									"key": "fields[bands]",
+									"value": "id,name"
+								},
+								{
+									"key": "fields[artists]",
+									"value": "artists.id,artists.name"
+								},
+								{
+									"key": "include",
+									"value": "artists"
+								},
+								{
+									"key": "sort[bands]",
+									"value": "bands.name"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get one band",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{path}}/bands/278ea758-2bde-4354-addd-f0a4ea1431ae",
+							"host": [
+								"{{path}}"
+							],
+							"path": [
+								"bands",
+								"278ea758-2bde-4354-addd-f0a4ea1431ae"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get one band some fields",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{path}}/bands/d07a5727-976d-4a5d-ad99-8274beb2779a?fields[bands]=name",
+							"host": [
+								"{{path}}"
+							],
+							"path": [
+								"bands",
+								"d07a5727-976d-4a5d-ad99-8274beb2779a"
+							],
+							"query": [
+								{
+									"key": "fields[bands]",
+									"value": "name"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "albums",
+			"item": [
+				{
+					"name": "get all albums",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{path}}/albums",
+							"host": [
+								"{{path}}"
+							],
+							"path": [
+								"albums"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all albums some fields",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{path}}/albums?fields[albums]=name",
+							"host": [
+								"{{path}}"
+							],
+							"path": [
+								"albums"
+							],
+							"query": [
+								{
+									"key": "fields[albums]",
+									"value": "name"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all albums sorted by -name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{path}}/albums?sort=-name",
+							"host": [
+								"{{path}}"
+							],
+							"path": [
+								"albums"
+							],
+							"query": [
+								{
+									"key": "sort",
+									"value": "-name"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all albums filtered by band_id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{path}}/albums?filter[band_id]=5942fefb-928c-4798-9b1d-8dd5503c62dc&sort=release_date&fields[albums]=id,band_id,name,release_date",
+							"host": [
+								"{{path}}"
+							],
+							"path": [
+								"albums"
+							],
+							"query": [
+								{
+									"key": "filter[band_id]",
+									"value": "5942fefb-928c-4798-9b1d-8dd5503c62dc"
+								},
+								{
+									"key": "sort",
+									"value": "release_date"
+								},
+								{
+									"key": "fields[albums]",
+									"value": "id,band_id,name,release_date"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all albums filtered by artist_id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{path}}/albums?filter[artist_id]=bb3b6421-de71-4dfb-8a73-aa6c6a5b4b20",
+							"host": [
+								"{{path}}"
+							],
+							"path": [
+								"albums"
+							],
+							"query": [
+								{
+									"key": "filter[artist_id]",
+									"value": "bb3b6421-de71-4dfb-8a73-aa6c6a5b4b20"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all albums with their band/artists",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{path}}/albums?fields[albums]=albums.id,albums.name,albums.band_id,albums.artist_id&fields[artists]=artists.id,artists.name&fields[bands]=bands.id,bands.name&include=artist,band",
+							"host": [
+								"{{path}}"
+							],
+							"path": [
+								"albums"
+							],
+							"query": [
+								{
+									"key": "fields[albums]",
+									"value": "albums.id,albums.name,albums.band_id,albums.artist_id"
+								},
+								{
+									"key": "fields[artists]",
+									"value": "artists.id,artists.name"
+								},
+								{
+									"key": "fields[bands]",
+									"value": "bands.id,bands.name"
+								},
+								{
+									"key": "include",
+									"value": "artist,band"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get one album",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{path}}/albums/07b34461-1a2d-4422-aa26-e4d8086bce2c",
+							"host": [
+								"{{path}}"
+							],
+							"path": [
+								"albums",
+								"07b34461-1a2d-4422-aa26-e4d8086bce2c"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get one album with his band and songs",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{path}}/albums/0deb77f2-32c5-4229-8c65-ca5db3b3e2b6?fields[albums]=albums.id,albums.name,albums.band_id,albums.release_date&include=band,songs&fields[band]=bands.name",
+							"host": [
+								"{{path}}"
+							],
+							"path": [
+								"albums",
+								"0deb77f2-32c5-4229-8c65-ca5db3b3e2b6"
+							],
+							"query": [
+								{
+									"key": "fields[albums]",
+									"value": "albums.id,albums.name,albums.band_id,albums.release_date"
+								},
+								{
+									"key": "include",
+									"value": "band,songs"
+								},
+								{
+									"key": "fields[band]",
+									"value": "bands.name"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "songs",
+			"item": [
+				{
+					"name": "get all songs",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{path}}/songs",
+							"host": [
+								"{{path}}"
+							],
+							"path": [
+								"songs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all songs with filters and album",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{path}}/songs?fields[songs]=songs.id,songs.name,songs.album_id,songs.duration,songs.position&filter[album_id]=ef68dbca-d302-4c36-9898-326bb55797fb&include=album",
+							"host": [
+								"{{path}}"
+							],
+							"path": [
+								"songs"
+							],
+							"query": [
+								{
+									"key": "fields[songs]",
+									"value": "songs.id,songs.name,songs.album_id,songs.duration,songs.position"
+								},
+								{
+									"key": "filter[album_id]",
+									"value": "ef68dbca-d302-4c36-9898-326bb55797fb"
+								},
+								{
+									"key": "include",
+									"value": "album"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

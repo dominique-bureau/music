@@ -12,13 +12,17 @@ class BandRepository {
 
     public function getAll() {
 
+        // return Band::with('artists')->get();
+
         $bands = QueryBuilder::for(Band::class)
                 ->allowedFilters([
                     AllowedFilter::partial('name'),
                     AllowedFilter::exact('creation_year')
                 ])
-                ->allowedSorts(['name', 'creation_year'])
-                ->allowedFields(['name', 'creation_year'])
+                ->allowedSorts(['bands.name', 'creation_year'])
+                ->allowedFields(['bands.id', 'bands.name', 'bands.creation_year',
+                    'artists.id', 'artists.name'])
+                ->allowedIncludes('artists')
                 ->defaultSort('name');
 
         return $bands->paginate(10);

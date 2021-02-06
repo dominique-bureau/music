@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Ramsey\Uuid\Uuid;
 
-class Band extends Model {
+class ArtistBand extends Model {
 
     use HasFactory;
 
@@ -31,17 +31,10 @@ class Band extends Model {
     }
 
     public $incrementing = false;
+    protected $table = 'artist_band';
     protected $keyType = 'string';
     protected $hidden = [
         'created_by', 'updated_by', 'created_at', 'updated_at'
     ];
-
-    public function artists() {
-        return $this->belongsToMany(Artist::class)->orderBy('name');
-    }
-
-    public function albums() {
-        return $this->hasMany(Album::class);
-    }
 
 }

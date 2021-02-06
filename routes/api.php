@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\AlbumController;
 use App\Http\Controllers\ArtistController;
 use App\Http\Controllers\BandController;
+use App\Http\Controllers\SongController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -24,4 +26,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::prefix('v1')->group(function () {
     Route::apiResource('artists', ArtistController::class)->only(['index', 'show'])->whereUuid('artist');
     Route::apiResource('bands', BandController::class)->only(['index', 'show'])->whereUuid('band');
+    Route::apiResource('albums', AlbumController::class)->only(['index', 'show'])->whereUuid('album');
+    Route::apiResource('songs', SongController::class)->only(['index', 'show'])->whereUuid('song');
 });

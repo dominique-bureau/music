@@ -14,8 +14,16 @@ class DatabaseSeeder extends Seeder {
      * @return void
      */
     public function run() {
+
         Artist::factory(100)->create();
         Band::factory(20)->create();
+
+
+        $this->call([
+            ArtistBandSeeder::class,
+            AlbumSeeder::class,
+            SongSeeder::class
+        ]);
     }
 
 }

@@ -7,13 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Ramsey\Uuid\Uuid;
 
-class Band extends Model {
+class Album extends Model {
 
     use HasFactory;
 
-    /**
-     * Generate an uuid for the key.
-     */
     public static function boot(): void {
         parent::boot();
         self::creating(function ($model): void {
@@ -36,12 +33,16 @@ class Band extends Model {
         'created_by', 'updated_by', 'created_at', 'updated_at'
     ];
 
-    public function artists() {
-        return $this->belongsToMany(Artist::class)->orderBy('name');
+    public function band() {
+        return $this->belongsTo(Band::class);
     }
 
-    public function albums() {
-        return $this->hasMany(Album::class);
+    public function artist() {
+        return $this->belongsTo(Artist::class);
+    }
+
+    public function songs() {
+        return $this->hasMany(Song::class)->orderBy('position');
     }
 
 }
