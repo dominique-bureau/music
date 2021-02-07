@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\SongResource;
 use App\Models\Song;
 use App\Repositories\SongRepository;
 use Illuminate\Http\Request;
@@ -23,7 +24,8 @@ class SongController extends Controller {
     public function index() {
         try {
             $songs = $this->songRepository->getAll();
-            return response()->json($songs);
+            // return response()->json($songs);
+            return new SongResource($songs);
         } catch (\Exception $ex) {
             return response()->json(['Error' => $ex->getMessage()], 400);
         }
@@ -55,7 +57,13 @@ class SongController extends Controller {
      * @return Response
      */
     public function show(Song $song) {
-        //
+        try {
+            // $album = $this->albumRepository->getById($album->id);
+            // return response()->json($album);
+            return new SongResource($this->songRepository->getById($song->id));
+        } catch (\Exception $ex) {
+            return response()->json(['Error' => $ex->getMessage()], 400);
+        }
     }
 
     /**

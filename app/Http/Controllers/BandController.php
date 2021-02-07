@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\BandResource;
 use App\Models\Band;
 use App\Repositories\BandRepository;
 use Illuminate\Http\Request;
@@ -24,8 +25,9 @@ class BandController extends Controller {
 
         try {
             $bands = $this->bandRepository->getAll($request->all());
-            return response()->json($bands);
-        } catch (\Exception $ex) {
+            // return response()->json($bands);
+            return new BandResource($bands);
+        } catch (Exception $ex) {
             return response()->json(['Error' => $ex->getMessage()], 400);
         }
     }
@@ -43,15 +45,16 @@ class BandController extends Controller {
     /**
      * Display the specified resource.
      *
-     * @param  Artist  $artist
+     * @param  Band  $band
      * @return Response
      */
-    public function show(string $id) {
+    public function show(Band $band) {
 
         try {
-            $band = $this->bandRepository->getById($id);
-            return response()->json($band);
-        } catch (\Exception $ex) {
+            // $bandQuery = $this->bandRepository->getById($band->id);
+            // return response()->json($band);
+            return new BandResource($this->bandRepository->getById($band->id));
+        } catch (Exception $ex) {
             return response()->json(['Error' => $ex->getMessage()], 400);
         }
     }

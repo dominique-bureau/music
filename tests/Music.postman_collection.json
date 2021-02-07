@@ -399,13 +399,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{path}}/bands/278ea758-2bde-4354-addd-f0a4ea1431ae",
+							"raw": "{{path}}/bands/8dc187c9-5151-48a9-ae2e-d3abdf334306",
 							"host": [
 								"{{path}}"
 							],
 							"path": [
 								"bands",
-								"278ea758-2bde-4354-addd-f0a4ea1431ae"
+								"8dc187c9-5151-48a9-ae2e-d3abdf334306"
 							]
 						}
 					},
@@ -598,13 +598,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{path}}/albums/07b34461-1a2d-4422-aa26-e4d8086bce2c",
+							"raw": "{{path}}/albums/2f48b39e-e924-40e5-8352-5ee8117c400f",
 							"host": [
 								"{{path}}"
 							],
 							"path": [
 								"albums",
-								"07b34461-1a2d-4422-aa26-e4d8086bce2c"
+								"2f48b39e-e924-40e5-8352-5ee8117c400f"
 							]
 						}
 					},
@@ -616,13 +616,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{path}}/albums/0deb77f2-32c5-4229-8c65-ca5db3b3e2b6?fields[albums]=albums.id,albums.name,albums.band_id,albums.release_date&include=band,songs&fields[band]=bands.name",
+							"raw": "{{path}}/albums/2f48b39e-e924-40e5-8352-5ee8117c400f?fields[albums]=albums.id,albums.name,albums.band_id,albums.release_date&include=band,songs&fields[bands]=bands.name",
 							"host": [
 								"{{path}}"
 							],
 							"path": [
 								"albums",
-								"0deb77f2-32c5-4229-8c65-ca5db3b3e2b6"
+								"2f48b39e-e924-40e5-8352-5ee8117c400f"
 							],
 							"query": [
 								{
@@ -634,7 +634,7 @@
 									"value": "band,songs"
 								},
 								{
-									"key": "fields[band]",
+									"key": "fields[bands]",
 									"value": "bands.name"
 								}
 							]
@@ -670,7 +670,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{path}}/songs?fields[songs]=songs.id,songs.name,songs.album_id,songs.duration,songs.position&filter[album_id]=ef68dbca-d302-4c36-9898-326bb55797fb&include=album",
+							"raw": "{{path}}/songs?fields[songs]=songs.id,songs.name,songs.album_id,songs.duration,songs.position&filter[album_id]=22967847-5485-4279-83a3-261e94e6a910&include=album",
 							"host": [
 								"{{path}}"
 							],
@@ -684,11 +684,85 @@
 								},
 								{
 									"key": "filter[album_id]",
-									"value": "ef68dbca-d302-4c36-9898-326bb55797fb"
+									"value": "22967847-5485-4279-83a3-261e94e6a910"
 								},
 								{
 									"key": "include",
 									"value": "album"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get one song",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{path}}/songs/a876352e-af0b-4d4a-9205-8adbb99d4498",
+							"host": [
+								"{{path}}"
+							],
+							"path": [
+								"songs",
+								"a876352e-af0b-4d4a-9205-8adbb99d4498"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get one song with album",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{path}}/songs/a876352e-af0b-4d4a-9205-8adbb99d4498?include=album",
+							"host": [
+								"{{path}}"
+							],
+							"path": [
+								"songs",
+								"a876352e-af0b-4d4a-9205-8adbb99d4498"
+							],
+							"query": [
+								{
+									"key": "include",
+									"value": "album"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get one song some fields with album",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{path}}/songs/a876352e-af0b-4d4a-9205-8adbb99d4498?fields[songs]=songs.id,songs.name,songs.album_id&include=album&fields[album]=albums.id,albums.name",
+							"host": [
+								"{{path}}"
+							],
+							"path": [
+								"songs",
+								"a876352e-af0b-4d4a-9205-8adbb99d4498"
+							],
+							"query": [
+								{
+									"key": "fields[songs]",
+									"value": "songs.id,songs.name,songs.album_id"
+								},
+								{
+									"key": "include",
+									"value": "album"
+								},
+								{
+									"key": "fields[album]",
+									"value": "albums.id,albums.name"
 								}
 							]
 						}

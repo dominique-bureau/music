@@ -30,14 +30,13 @@ class SongRepository {
 
     public function getById(string $id) {
 
-        $band = QueryBuilder::for(Album::class)
-                ->allowedFields(['albums.id', 'albums.name', 'albums.band_id', 'albums.artist_id', 'albums.release_date',
-                    'artists.id', 'artists.name',
-                    'bands.id', 'bands.name'])
-                ->allowedIncludes(['band', 'artist', 'songs'])
+        $song = QueryBuilder::for(Song::class)
+                ->allowedFields(['songs.id', 'songs.name', 'songs.duration', 'songs.position', 'songs.album_id',
+                    'albums.id', 'albums.name'])
+                ->allowedIncludes(['album'])
                 ->find($id);
 
-        return $band;
+        return $song;
     }
 
 }

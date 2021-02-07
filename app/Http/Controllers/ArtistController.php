@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\ArtistResource;
 use App\Models\Artist;
 use App\Repositories\ArtistRepository;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use function response;
 
 class ArtistController extends Controller {
 
@@ -24,7 +26,8 @@ class ArtistController extends Controller {
 
         try {
             $artists = $this->artistRepository->getAll($request->all());
-            return response()->json($artists);
+            return new ArtistResource($artists);
+            // return response()->json($artists);
         } catch (\Exception $ex) {
             return response()->json(['Error' => $ex->getMessage()], 400);
         }
@@ -46,12 +49,13 @@ class ArtistController extends Controller {
      * @param  Artist  $artist
      * @return Response
      */
-    public function show(string $id) {
+    public function show(Artist $artist) {
 
         try {
-            $artist = $this->artistRepository->getById($id);
-            return response()->json($artist);
-        } catch (\Exception $ex) {
+            $artist = $this->artistRepository->getById($artist->id);
+            // return response()->json($artist);
+            return new ArtistResource($artist);
+        } catch (Exception $ex) {
             return response()->json(['Error' => $ex->getMessage()], 400);
         }
 

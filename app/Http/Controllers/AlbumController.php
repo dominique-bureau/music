@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\AlbumResource;
 use App\Models\Album;
 use App\Repositories\AlbumRepository;
 use Illuminate\Http\Request;
@@ -23,7 +24,8 @@ class AlbumController extends Controller {
     public function index(Request $request) {
         try {
             $albums = $this->albumRepository->getAll($request->all());
-            return response()->json($albums);
+            return new AlbumResource($albums);
+            // return response()->json($albums);
         } catch (\Exception $ex) {
             return response()->json(['Error' => $ex->getMessage()], 400);
         }
@@ -56,8 +58,9 @@ class AlbumController extends Controller {
      */
     public function show(Album $album) {
         try {
-            $album = $this->albumRepository->getById($album->id);
-            return response()->json($album);
+            // $album = $this->albumRepository->getById($album->id);
+            // return response()->json($album);
+            return new AlbumResource($this->albumRepository->getById($album->id));
         } catch (\Exception $ex) {
             return response()->json(['Error' => $ex->getMessage()], 400);
         }
