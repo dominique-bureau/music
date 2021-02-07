@@ -18,9 +18,47 @@ class ArtistController extends Controller {
     }
 
     /**
-     * Display a listing of the resource.
-     *
-     * @return Response
+     * @OA\Get(
+     *      path="/artists",
+     *      operationId="getArtistsList",
+     *      tags={"Artists"},
+     *      summary="Get list of artists",
+     *      description="Returns list of artists",
+     *      @OA\Parameter(
+     *          name="page",
+     *          description="Page number",
+     *          required=false,
+     *          in="path",
+     *          @OA\Schema(
+     *              type="integer"
+     *          )
+     *      ),
+     *      @OA\Parameter(
+     *          name="fields[artist]",
+     *          description="The available fields",
+     *          required=false,
+     *          in="path",
+     *          @OA\Schema(
+     *              type="string"
+     *          )
+     *      ),
+     *      @OA\Response(
+     *          response=200,
+     *          description="Successful operation",
+     *          @OA\JsonContent(
+     *              type="array",
+     *              @OA\Items(ref="#/components/schemas/Artist")
+     *          )
+     *       ),
+     *      @OA\Response(
+     *          response=401,
+     *          description="Unauthenticated",
+     *      ),
+     *      @OA\Response(
+     *          response=403,
+     *          description="Forbidden"
+     *      )
+     *     )
      */
     public function index(Request $request) {
 
@@ -44,10 +82,39 @@ class ArtistController extends Controller {
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  Artist  $artist
-     * @return Response
+     * @OA\Get(
+     *      path="/artists/{id}",
+     *      operationId="getArtistById",
+     *      tags={"Artists"},
+     *      summary="Get artist information",
+     *      description="Returns artist data",
+     *      @OA\Parameter(
+     *          name="id",
+     *          description="Artist id",
+     *          required=true,
+     *          in="path",
+     *          @OA\Schema(
+     *              type="string", format="uuid"
+     *          )
+     *      ),
+     *      @OA\Response(
+     *          response=200,
+     *          description="Successful operation",
+     *          @OA\JsonContent(ref="#/components/schemas/Artist")
+     *       ),
+     *      @OA\Response(
+     *          response=400,
+     *          description="Bad Request"
+     *      ),
+     *      @OA\Response(
+     *          response=401,
+     *          description="Unauthenticated",
+     *      ),
+     *      @OA\Response(
+     *          response=403,
+     *          description="Forbidden"
+     *      )
+     * )
      */
     public function show(Artist $artist) {
 

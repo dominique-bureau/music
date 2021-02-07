@@ -1,0 +1,197 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Music Dom Api Documentation",
+        "description": "Here you will find all the necessary documentation to use the endpoints.",
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://127.0.0.1:8000/api/v1",
+            "description": "Demo API Server"
+        }
+    ],
+    "paths": {
+        "/artists": {
+            "get": {
+                "tags": [
+                    "Artists"
+                ],
+                "summary": "Get list of artists",
+                "description": "Returns list of artists",
+                "operationId": "getArtistsList",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "path",
+                        "description": "Page number",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "fields[artist]",
+                        "in": "path",
+                        "description": "The available fields",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Artist"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/artists/{id}": {
+            "get": {
+                "tags": [
+                    "Artists"
+                ],
+                "summary": "Get artist information",
+                "description": "Returns artist data",
+                "operationId": "getArtistById",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Artist id",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Artist"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Artist": {
+                "title": "Artist",
+                "description": "Artist model",
+                "properties": {
+                    "id": {
+                        "title": "Id",
+                        "description": "Id",
+                        "type": "string",
+                        "format": "uuid",
+                        "example": "f5d3101b-de3a-4778-8f6d-90479534c2e5"
+                    },
+                    "name": {
+                        "title": "Name",
+                        "description": "Name of the artist (first and last name)",
+                        "type": "string",
+                        "example": "Tony BANKS"
+                    },
+                    "birth_date": {
+                        "title": "Birth date",
+                        "type": "string",
+                        "example": "1950-03-27"
+                    },
+                    "death_date": {
+                        "title": "Death date",
+                        "type": "string",
+                        "example": "null"
+                    },
+                    "nationality_id": {
+                        "title": "Nationality",
+                        "type": "string",
+                        "example": "GB"
+                    }
+                },
+                "type": "object"
+            },
+            "Band": {
+                "title": "Band",
+                "description": "Band model",
+                "properties": {
+                    "id": {
+                        "title": "Id",
+                        "description": "Id",
+                        "type": "string",
+                        "format": "uuid",
+                        "example": "f5d3101b-de3a-4778-8f6d-90479534c2e5"
+                    },
+                    "name": {
+                        "title": "Name",
+                        "description": "Name of the band",
+                        "type": "string",
+                        "example": "GENESIS"
+                    },
+                    "creation_year": {
+                        "title": "Creation yeay",
+                        "type": "string",
+                        "example": "1969"
+                    }
+                },
+                "type": "object"
+            },
+            "ArtistResource": {
+                "title": "ArtistResource",
+                "description": "Artist resource",
+                "properties": {
+                    "data": {
+                        "title": "Data",
+                        "description": "Data wrapper"
+                    }
+                },
+                "type": "object",
+                "xml": {
+                    "name": "ArtistResource"
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Artists",
+            "description": "API Endpoints of Artists"
+        }
+    ],
+    "security": [
+        []
+    ]
+}
