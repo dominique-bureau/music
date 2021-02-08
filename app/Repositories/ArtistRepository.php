@@ -27,7 +27,7 @@ class ArtistRepository {
     public function getById(string $id) {
 
         $artist = QueryBuilder::for(Artist::class)
-                ->allowedFields(['id', 'name', 'birth_date', 'death_date', 'nationality_id'])
+                ->allowedFields(['id', 'last_name', 'first_name', 'birth_date', 'death_date', 'nationality_id'])
                 ->find($id);
 
         return $artist;
