@@ -11,7 +11,6 @@ class Artist {
     /**
      * @OA\Property(
      *     title="Id",
-     *     description="Id",
      *     type="string",
      *     format="uuid",
      *     example="f5d3101b-de3a-4778-8f6d-90479534c2e5"
@@ -23,15 +22,27 @@ class Artist {
 
     /**
      * @OA\Property(
-     *      title="Name",
-     *      description="Name of the artist (first and last name)",
+     *      title="First name",
+     *
      *      type="string",
-     *      example="Tony BANKS"
+     *      example="Tony"
      * )
      *
      * @var string
      */
-    public $name;
+    public $first_name;
+
+    /**
+     * @OA\Property(
+     *      title="Last name",
+     *
+     *      type="string",
+     *      example="BANKS"
+     * )
+     *
+     * @var string
+     */
+    public $last_name;
 
     /**
      * @OA\Property(

@@ -23,11 +23,11 @@ class GenesisSeeder extends Seeder {
         ];
 
         $artists = [
-            ['name' => 'Tony BANKS', 'birth_date' => '1950-03-27', 'nationality_id' => 'GB'],
-            ['name' => 'Phil COLLINS', 'birth_date' => '1951-01-30', 'nationality_id' => 'GB'],
-            ['name' => 'Peter GABRIEL', 'birth_date' => '1950-02-13', 'nationality_id' => 'GB'],
-            ['name' => 'Steve HACKETT', 'birth_date' => '1950-02-12', 'nationality_id' => 'GB'],
-            ['name' => 'Mike RUTHERFORD', 'birth_date' => '1950-10-02', 'nationality_id' => 'GB'],
+            ['first_name' => 'Tony', 'last_name' => 'BANKS', 'birth_date' => '1950-03-27', 'nationality_id' => 'GB'],
+            ['first_name' => 'Phil', 'last_name' => 'COLLINS', 'birth_date' => '1951-01-30', 'nationality_id' => 'GB'],
+            ['first_name' => 'Peter', 'last_name' => 'GABRIEL', 'birth_date' => '1950-02-13', 'nationality_id' => 'GB'],
+            ['first_name' => 'Steve', 'last_name' => 'HACKETT', 'birth_date' => '1950-02-12', 'nationality_id' => 'GB'],
+            ['first_name' => 'Mike', 'last_name' => 'RUTHERFORD', 'birth_date' => '1950-10-02', 'nationality_id' => 'GB'],
         ];
 
         $albums = [
@@ -72,7 +72,8 @@ class GenesisSeeder extends Seeder {
 
         foreach ($artists as $artist) {
             $artistCreated = Artist::create([
-                        'name' => $artist['name'],
+                        'last_name' => $artist['last_name'],
+                        'first_name' => $artist['first_name'],
                         'birth_date' => $artist['birth_date'],
                         'nationality_id' => $artist['nationality_id']
             ]);

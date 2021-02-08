@@ -33,4 +33,19 @@ class ArtistRepository {
         return $artist;
     }
 
+    public function create(array $data): Artist {
+        $artist = new Artist();
+        $artist->fill($data);
+        $artist->save();
+
+        return $artist;
+    }
+
+    public function update(Artist $artist, array $data): Artist {
+        $artist->fill($data);
+        $artist->save();
+
+        return $artist;
+    }
+
 }

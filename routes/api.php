@@ -29,3 +29,7 @@ Route::prefix('v1')->group(function () {
     Route::apiResource('albums', AlbumController::class)->only(['index', 'show'])->whereUuid('album');
     Route::apiResource('songs', SongController::class)->only(['index', 'show'])->whereUuid('song');
 });
+
+Route::prefix('v1')->group(function () {
+    Route::apiResource('artists', ArtistController::class)->except(['index', 'show'])->whereUuid('artist');
+});

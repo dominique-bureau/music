@@ -35,6 +35,9 @@ class Artist extends Model {
     protected $hidden = [
         'created_by', 'updated_by', 'created_at', 'updated_at'
     ];
+    protected $fillable = [
+        'first_name', 'last_name', 'birth_date', 'death_date', 'nationality_id'
+    ];
 
     public function albums() {
         return $this->hasMany(Album::class);

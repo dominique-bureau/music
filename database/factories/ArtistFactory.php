@@ -23,7 +23,8 @@ class ArtistFactory extends Factory {
      */
     public function definition() {
         return [
-            'name' => $this->faker->lastName . ' ' . $this->faker->name(),
+            'first_name' => $this->faker->firstName,
+            'last_name' => $this->faker->lastName,
             'birth_date' => $this->faker->date('Y-m-d', '2000-01-01'),
             'death_date' => $this->faker->boolean(20) ? $this->faker->date('Y-m-d') : null,
             'nationality_id' => $this->faker->boolean(60) ? $this->faker->randomElement(self::NATIONALITY) : null,
