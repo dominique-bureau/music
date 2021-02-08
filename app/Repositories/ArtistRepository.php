@@ -18,7 +18,9 @@ class ArtistRepository {
                     AllowedFilter::exact('nationality_id')
                 ])
                 ->allowedSorts(['last_name', 'first_name', 'nationality_id', 'birth_date'])
-                ->allowedFields(['id', 'last_name', 'first_name', 'birth_date', 'death_date', 'nationality_id'])
+                ->allowedFields(['id', 'last_name', 'first_name', 'birth_date', 'death_date', 'nationality_id',
+                    'instruments.id', 'instruments.name'])
+                ->allowedIncludes(['instruments', 'bands'])
                 ->defaultSort('last_name');
 
         return $artists->paginate(10);

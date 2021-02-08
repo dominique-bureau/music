@@ -22,7 +22,7 @@ class SongRepository {
                 ->allowedSorts(['name', 'duration', 'position'])
                 ->allowedFields(['songs.id', 'songs.name', 'songs.duration', 'songs.position', 'songs.album_id',
                     'albums.id', 'albums.name'])
-                ->allowedIncludes(['album'])
+                ->allowedIncludes(['album', 'lyrics'])
                 ->defaultSort('position');
 
         return $songs->paginate(10);
@@ -33,7 +33,7 @@ class SongRepository {
         $song = QueryBuilder::for(Song::class)
                 ->allowedFields(['songs.id', 'songs.name', 'songs.duration', 'songs.position', 'songs.album_id',
                     'albums.id', 'albums.name'])
-                ->allowedIncludes(['album'])
+                ->allowedIncludes(['album', 'lyrics'])
                 ->find($id);
 
         return $song;
