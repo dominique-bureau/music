@@ -21,7 +21,7 @@ class BandRepository {
                 ])
                 ->allowedSorts(['bands.name', 'creation_year'])
                 ->allowedFields(['bands.id', 'bands.name', 'bands.creation_year',
-                    'artists.id', 'artists.name'])
+                    'artists.id', 'artists.first_name', 'artists.last_name'])
                 ->allowedIncludes('artists')
                 ->defaultSort('name');
 

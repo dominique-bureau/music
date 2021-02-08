@@ -37,7 +37,7 @@ class Band extends Model {
     ];
 
     public function artists() {
-        return $this->belongsToMany(Artist::class)->orderBy('name');
+        return $this->belongsToMany(Artist::class)->orderBy('last_name');
     }
 
     public function albums() {
