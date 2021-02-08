@@ -14,12 +14,12 @@ class ArtistRepository {
 
         $artists = QueryBuilder::for(Artist::class)
                 ->allowedFilters([
-                    AllowedFilter::partial('name'),
+                    AllowedFilter::partial('last_name'),
                     AllowedFilter::exact('nationality_id')
                 ])
-                ->allowedSorts(['name', 'nationality_id', 'birth_date'])
-                ->allowedFields(['id', 'name', 'birth_date', 'death_date', 'nationality_id'])
-                ->defaultSort('name');
+                ->allowedSorts(['last_name', 'first_name', 'nationality_id', 'birth_date'])
+                ->allowedFields(['id', 'last_name', 'first_name', 'birth_date', 'death_date', 'nationality_id'])
+                ->defaultSort('last_name');
 
         return $artists->paginate(10);
     }
