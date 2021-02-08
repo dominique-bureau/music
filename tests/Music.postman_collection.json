@@ -31,7 +31,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{path}}/artists?fields[artists]=id,name",
+							"raw": "{{path}}/artists?fields[artists]=id,first_name",
 							"host": [
 								"{{path}}"
 							],
@@ -41,7 +41,7 @@
 							"query": [
 								{
 									"key": "fields[artists]",
-									"value": "id,name"
+									"value": "id,first_name"
 								}
 							]
 						}
@@ -54,7 +54,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{path}}/artists?sort=name",
+							"raw": "{{path}}/artists?sort=first_name",
 							"host": [
 								"{{path}}"
 							],
@@ -64,7 +64,7 @@
 							"query": [
 								{
 									"key": "sort",
-									"value": "name"
+									"value": "first_name"
 								}
 							]
 						}
@@ -77,7 +77,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{path}}/artists?sort=-name",
+							"raw": "{{path}}/artists?sort=-first_name",
 							"host": [
 								"{{path}}"
 							],
@@ -87,7 +87,7 @@
 							"query": [
 								{
 									"key": "sort",
-									"value": "-name"
+									"value": "-first_name"
 								}
 							]
 						}
@@ -123,7 +123,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{path}}/artists?filter[nationality_id]=FR&filter[name]=k",
+							"raw": "{{path}}/artists?filter[nationality_id]=GB&filter[last_name]=k",
 							"host": [
 								"{{path}}"
 							],
@@ -133,10 +133,10 @@
 							"query": [
 								{
 									"key": "filter[nationality_id]",
-									"value": "FR"
+									"value": "GB"
 								},
 								{
-									"key": "filter[name]",
+									"key": "filter[last_name]",
 									"value": "k"
 								}
 							]
@@ -150,7 +150,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{path}}/artists?filter[nationality_id]=FR&fields[artists]=id,name,birth_date&sort=name&page=1",
+							"raw": "{{path}}/artists?filter[nationality_id]=GB&fields[artists]=id,last_name,birth_date&sort=last_name&page=1",
 							"host": [
 								"{{path}}"
 							],
@@ -160,19 +160,50 @@
 							"query": [
 								{
 									"key": "filter[nationality_id]",
-									"value": "FR"
+									"value": "GB"
 								},
 								{
 									"key": "fields[artists]",
-									"value": "id,name,birth_date"
+									"value": "id,last_name,birth_date"
 								},
 								{
 									"key": "sort",
-									"value": "name"
+									"value": "last_name"
 								},
 								{
 									"key": "page",
 									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all artists with instruments",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{path}}/artists?fields[artists]=artists.id,artists.first_name,artists.last_name&include=instruments&fields[instruments]=instruments.name",
+							"host": [
+								"{{path}}"
+							],
+							"path": [
+								"artists"
+							],
+							"query": [
+								{
+									"key": "fields[artists]",
+									"value": "artists.id,artists.first_name,artists.last_name"
+								},
+								{
+									"key": "include",
+									"value": "instruments"
+								},
+								{
+									"key": "fields[instruments]",
+									"value": "instruments.name"
 								}
 							]
 						}
@@ -185,13 +216,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{path}}/artists/ee6296b6-47e6-46a1-ba29-0a5c9a0d2910",
+							"raw": "{{path}}/artists/a1f9210a-e828-4723-8185-b16667fc1d5b",
 							"host": [
 								"{{path}}"
 							],
 							"path": [
 								"artists",
-								"ee6296b6-47e6-46a1-ba29-0a5c9a0d2910"
+								"a1f9210a-e828-4723-8185-b16667fc1d5b"
 							]
 						}
 					},
@@ -203,19 +234,134 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{path}}/artists/ee6296b6-47e6-46a1-ba29-0a5c9a0d2910?fields[artists]=id,name",
+							"raw": "{{path}}/artists/a1f9210a-e828-4723-8185-b16667fc1d5b?fields[artists]=id,last_name",
 							"host": [
 								"{{path}}"
 							],
 							"path": [
 								"artists",
-								"ee6296b6-47e6-46a1-ba29-0a5c9a0d2910"
+								"a1f9210a-e828-4723-8185-b16667fc1d5b"
 							],
 							"query": [
 								{
 									"key": "fields[artists]",
-									"value": "id,name"
+									"value": "id,last_name"
 								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "post artist with errors",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "Application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{path}}/artists",
+							"host": [
+								"{{path}}"
+							],
+							"path": [
+								"artists"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "post artist OK",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "Application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"first_name\" : \"first_name_test\",\r\n    \"last_name\" : \"last_name_test\",\r\n    \"nationality_id\" : \"GB\",\r\n    \"birth_date\" : \"1950-12-12\",\r\n    \"death_date\" : \"2000-12-12\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{path}}/artists",
+							"host": [
+								"{{path}}"
+							],
+							"path": [
+								"artists"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "put artist with errors",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "Application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"first_name\" : \"first_name_modif\",\r\n    \"last_name\" : \"last_name-modif\",\r\n    \"nationality_id\" : \"RU\",\r\n    \"birth_date\" : \"1950-12-12\",\r\n    \"death_date\" : \"2000-12-12\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{path}}/artists/d5de4b82-bfe8-406b-b41c-423c0d4f2179",
+							"host": [
+								"{{path}}"
+							],
+							"path": [
+								"artists",
+								"d5de4b82-bfe8-406b-b41c-423c0d4f2179"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete one artist",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{path}}/artists/d5de4b82-bfe8-406b-b41c-423c0d4f2179",
+							"host": [
+								"{{path}}"
+							],
+							"path": [
+								"artists",
+								"d5de4b82-bfe8-406b-b41c-423c0d4f2179"
 							]
 						}
 					},
@@ -232,12 +378,18 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{path}}/bands",
+							"raw": "{{path}}/bands?filter[name]=ENE",
 							"host": [
 								"{{path}}"
 							],
 							"path": [
 								"bands"
+							],
+							"query": [
+								{
+									"key": "filter[name]",
+									"value": "ENE"
+								}
 							]
 						}
 					},
@@ -364,7 +516,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{path}}/bands?fields[bands]=id,name&fields[artists]=artists.id,artists.name&include=artists&sort[bands]=bands.name",
+							"raw": "{{path}}/bands?fields[bands]=id,name&fields[artists]=artists.id,artists.last_name&include=artists&sort[bands]=bands.name",
 							"host": [
 								"{{path}}"
 							],
@@ -378,7 +530,7 @@
 								},
 								{
 									"key": "fields[artists]",
-									"value": "artists.id,artists.name"
+									"value": "artists.id,artists.last_name"
 								},
 								{
 									"key": "include",
@@ -399,13 +551,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{path}}/bands/8dc187c9-5151-48a9-ae2e-d3abdf334306",
+							"raw": "{{path}}/bands/2d4a99be-edfb-42d0-ac96-12dbeccfe6fa",
 							"host": [
 								"{{path}}"
 							],
 							"path": [
 								"bands",
-								"8dc187c9-5151-48a9-ae2e-d3abdf334306"
+								"2d4a99be-edfb-42d0-ac96-12dbeccfe6fa"
 							]
 						}
 					},
@@ -417,13 +569,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{path}}/bands/d07a5727-976d-4a5d-ad99-8274beb2779a?fields[bands]=name",
+							"raw": "{{path}}/bands/2d4a99be-edfb-42d0-ac96-12dbeccfe6fa?fields[bands]=name",
 							"host": [
 								"{{path}}"
 							],
 							"path": [
 								"bands",
-								"d07a5727-976d-4a5d-ad99-8274beb2779a"
+								"2d4a99be-edfb-42d0-ac96-12dbeccfe6fa"
 							],
 							"query": [
 								{
@@ -616,13 +768,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{path}}/albums/2f48b39e-e924-40e5-8352-5ee8117c400f?fields[albums]=albums.id,albums.name,albums.band_id,albums.release_date&include=band,songs&fields[bands]=bands.name",
+							"raw": "{{path}}/albums/6b52984e-57d5-4e88-ac46-b07b42181412?fields[albums]=albums.id,albums.name,albums.band_id,albums.release_date&include=band,songs&fields[bands]=bands.name",
 							"host": [
 								"{{path}}"
 							],
 							"path": [
 								"albums",
-								"2f48b39e-e924-40e5-8352-5ee8117c400f"
+								"6b52984e-57d5-4e88-ac46-b07b42181412"
 							],
 							"query": [
 								{
@@ -763,6 +915,155 @@
 								{
 									"key": "fields[album]",
 									"value": "albums.id,albums.name"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get lyrics of a song + album",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{path}}/songs/0d1dfc41-9aa0-471d-89d1-b1b22ec1730c?fields[songs]=songs.id,songs.name,songs.album_id&include=album,lyrics&fields[album]=albums.id,albums.name",
+							"host": [
+								"{{path}}"
+							],
+							"path": [
+								"songs",
+								"0d1dfc41-9aa0-471d-89d1-b1b22ec1730c"
+							],
+							"query": [
+								{
+									"key": "fields[songs]",
+									"value": "songs.id,songs.name,songs.album_id"
+								},
+								{
+									"key": "include",
+									"value": "album,lyrics"
+								},
+								{
+									"key": "fields[album]",
+									"value": "albums.id,albums.name"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "instruments",
+			"item": [
+				{
+					"name": "get all instruments",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{path}}/instruments",
+							"host": [
+								"{{path}}"
+							],
+							"path": [
+								"instruments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all instruments order by +name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{path}}/instruments?sort=+name",
+							"host": [
+								"{{path}}"
+							],
+							"path": [
+								"instruments"
+							],
+							"query": [
+								{
+									"key": "sort",
+									"value": "+name"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all instruments with artists",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{path}}/instruments?include=artists&fields[artists]=artists.id,artists.last_name",
+							"host": [
+								"{{path}}"
+							],
+							"path": [
+								"instruments"
+							],
+							"query": [
+								{
+									"key": "include",
+									"value": "artists"
+								},
+								{
+									"key": "fields[artists]",
+									"value": "artists.id,artists.last_name"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "lyrics",
+			"item": [
+				{
+					"name": "get all lyrics",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{path}}/lyrics",
+							"host": [
+								"{{path}}"
+							],
+							"path": [
+								"lyrics"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all lyrics of a song",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{path}}/lyrics?filter[song_id]=7fe19295-e640-44f3-a1af-73963c2e978d",
+							"host": [
+								"{{path}}"
+							],
+							"path": [
+								"lyrics"
+							],
+							"query": [
+								{
+									"key": "filter[song_id]",
+									"value": "7fe19295-e640-44f3-a1af-73963c2e978d"
 								}
 							]
 						}
