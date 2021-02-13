@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1>Artists list</h1>
+        <h1>Artists list </h1>
         <section class="section">
             <div class="container">
                 <div class="table-container">
@@ -9,7 +9,6 @@
                             <tr>
                                 <th>ID</th>
                                 <th>Event Name</th>
-                                <th>Start Date</th>
                             </tr>
                         </thead>
                         <tbody>
