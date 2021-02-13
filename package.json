@@ -24,6 +24,6 @@
         "vuex": "^4.0.0"
     },
     "scripts": {
-        "postinstall": "npm run prod"
+        "heroku-postbuild": "npm run production"
     }
 }
