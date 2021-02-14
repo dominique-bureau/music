@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/Dominique/Documents/Workspace/music/app/Repositories/SongRepository.php</file>
+            <file>file:/C:/Users/Dominique/Documents/Workspace/music/app/Models/Band.php</file>
+            <file>file:/C:/Users/Dominique/Documents/Workspace/music/app/Models/Album.php</file>
+            <file>file:/C:/Users/Dominique/Documents/Workspace/music/database/seeders/LyricSeeder.php</file>
+            <file>file:/C:/Users/Dominique/Documents/Workspace/music/routes/api.php</file>
+            <file>file:/C:/Users/Dominique/Documents/Workspace/music/app/Http/Controllers/LyricController.php</file>
+            <file>file:/C:/Users/Dominique/Documents/Workspace/music/app/Models/Song.php</file>
+            <file>file:/C:/Users/Dominique/Documents/Workspace/music/app/Repositories/LyricRepository.php</file>
+            <file>file:/C:/Users/Dominique/Documents/Workspace/music/app/Models/Instrument.php</file>
+            <file>file:/C:/Users/Dominique/Documents/Workspace/music/database/factories/LyricFactory.php</file>
+            <file>file:/C:/Users/Dominique/Documents/Workspace/music/database/migrations/2021_02_08_130948_create_lyrics_table.php</file>
+            <file>file:/C:/Users/Dominique/Documents/Workspace/music/app/Repositories/InstrumentRepository.php</file>
+            <file>file:/C:/Users/Dominique/Documents/Workspace/music/app/Http/Controllers/InstrumentController.php</file>
+            <file>file:/C:/Users/Dominique/Documents/Workspace/music/app/Models/Artist.php</file>
+            <file>file:/C:/Users/Dominique/Documents/Workspace/music/app/Repositories/ArtistRepository.php</file>
+            <file>file:/C:/Users/Dominique/Documents/Workspace/music/app/Models/Lyric.php</file>
+            <file>file:/C:/Users/Dominique/Documents/Workspace/music/database/seeders/DatabaseSeeder.php</file>
+        </group>
+    </open-files>
+</project-private>

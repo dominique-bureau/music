@@ -26,6 +26,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 
 Route::prefix('v1')->group(function () {
+    Route::post('/login', 'App\Http\Controllers\AuthController@login')->name('login');
+    Route::post('/register', 'App\Http\Controllers\AuthController@register')->name('register');
+
     Route::apiResource('artists', ArtistController::class)->only(['index', 'show'])->whereUuid('artist');
     Route::apiResource('instruments', InstrumentController::class)->only(['index', 'show'])->whereUuid('instrument');
     Route::apiResource('bands', BandController::class)->only(['index', 'show'])->whereUuid('band');
@@ -34,6 +37,13 @@ Route::prefix('v1')->group(function () {
     Route::apiResource('lyrics', LyricController::class)->only(['index', 'show'])->whereUuid('lyric');
 });
 
-Route::prefix('v1')->group(function () {
+Route::group(['prefix' => 'v1', 'middleware' => 'auth:sanctum'], function() {
     Route::apiResource('artists', ArtistController::class)->except(['index', 'show'])->whereUuid('artist');
+});
+
+
+
+Route::group(['middleware' => ['auth:sanctum']], function() {
+    Route::post('/logout', 'App\Http\Controllers\AuthController@logout')->name('logout');
+    Route::get('/events', 'App\Http\Controllers\EventController@list');
 });
